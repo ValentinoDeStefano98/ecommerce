@@ -25,13 +25,13 @@
                     <div class="col-8">
                         <div class="row row-cols-3">
                             <!-- Card -->
-                            <div class="col- mb-3" v-for="element in products">
-                                <img class="img-fluid" src="https://source.unsplash.com/random/400x200/?shoes" alt="img scarpe">
+                            <div class="col- mb-5" v-for="element in products">
+                                <img class="img-fluid" v-bind:src="element.media" v-bind:alt="element.name">
                                 <div class="d-flex justify-content-between align-items-center my-3">
                                     <h5> {{ element.name }} </h5>
                                     <span> {{ element.price }} $ </span>
                                 </div>
-                                <button type="button" class="btn btn-primary">Aggiungi al carrello</button>  
+                                <button type="button" class="btn btn-primary" @click="addToCart(element)">Aggiungi al carrello</button>  
                             </div>
                         </div>
                         <div>
@@ -42,10 +42,10 @@
                     <div class="col-4 bg-custom p-5">
                         <h2 class="text-center">Carrello</h2>
                         <ul>
-                            <li class="d-flex align-items-center justify-content-between border-bottom border-dark py-3">
-                                <span>Nome del prodotto</span>
+                            <li class="d-flex align-items-center justify-content-between border-bottom border-dark py-3" v-for="element in carrello">
+                                <span> {{element.name}} </span>
                                 <div class="d-flex align-items-center">
-                                    <span class="me-5">50$</span>
+                                    <span class="me-5"> {{element.price}} </span>
                                     <button type="button" class="btn btn-danger">Rimuovi</button>
                                 </div>
                             </li>

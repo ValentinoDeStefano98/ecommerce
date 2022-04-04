@@ -40,10 +40,13 @@ var app = new Vue(
                     price: 70,
                     media: 'https://source.unsplash.com/random/400x200/?shoes'
                 },
-            ]
+            ],
+            carrello: [],
         },
         methods: {
-
+            addToCart: function(element){
+                this.carrello.push(element);
+            }
         }
     }
 )
