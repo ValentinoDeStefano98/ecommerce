@@ -14,11 +14,9 @@
 <body>
 
     <div id="root">
-
         <header class="border-bottom border-dark pb-3">
             <h1 class="text-center">Shop</h1>
         </header>
-
         <main>
             <div class="container mt-5">
                 <div class="row">
@@ -45,22 +43,19 @@
                             <li class="d-flex align-items-center justify-content-between border-bottom border-dark py-3" v-for="element in carrello">
                                 <span> {{element.name}} </span>
                                 <div class="d-flex align-items-center">
-                                    <span class="me-5"> {{element.price}} </span>
-                                    <button type="button" class="btn btn-danger">Rimuovi</button>
+                                    <span class="me-5"> {{element.price}} $ </span>
+                                    <button type="button" class="btn btn-danger" @click="removeToCart(element.id)">Rimuovi</button>
                                 </div>
                             </li>
                         </ul>
                         <div class="text-center">
                             <h2>Somma</h2>
-                            <h4>150$</h4>
-                        </div>
-                        
+                            <h4> {{ sommaPrezzo() }} </h4>
+                        </div>                      
                     </div>
                 </div>
             </div>
         </main>
-
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
